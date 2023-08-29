@@ -1,0 +1,6 @@
+server:
+  port: 8050
+
+
+
+# 在配置中心中， 可以通过profiles进行配置

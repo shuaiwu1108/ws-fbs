@@ -1,0 +1,39 @@
+server:
+  port: 9999
+spring:
+  datasource:
+    username: root
+    password: wushuai
+    url: jdbc:mysql://localhost:3306/seata?characterEncoding=utf8&useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+  application:
+    name: alibaba-order-seata
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        username: nacos
+        password: nacos
+    alibaba:
+      seata:
+        tx-service-group: wuhan
+seata:
+  registry:
+    #配置seata注册中心，告诉seata client如何访问setata server
+    type: nacos
+    nacos:
+      server-addr: 192.168.0.240:8848
+      application: seata-server
+      username: nacos
+      password: nacos
+      group: SEATA_GROUP
+  config:
+    #配置seata的配置中心，读取seata client配置
+    server-addr: 192.168.0.240:8848
+    username: nacos
+    password: nacos
+    group: SEATA_GROUP
+  service:
+    vgroup-mapping:
+      wuhan: default

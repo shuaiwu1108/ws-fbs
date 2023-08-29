@@ -1,0 +1,29 @@
+server:
+  port: 8040
+spring:
+  application:
+    name: auth-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        username: nacos
+        password: nacos
+        namespace: public
+
+#springboot默认日志级别是info， feign是debug
+logging:
+  level:
+    com.shuaiwu.auth.feign: debug
+
+#局部配置feign服务的log日志
+#contract: feign.Contract.Default #支持feign原生注解
+feign:
+  client:
+    config:
+      user-service:
+        logger-level: FULL
+        connect-timeout: 5000
+        read-timeout: 3000
+        request-interceptors:
+          - com.shuaiwu.auth.interceptor.feign.CustomFeignInterceptor

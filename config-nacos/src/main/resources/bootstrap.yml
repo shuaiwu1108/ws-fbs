@@ -1,0 +1,12 @@
+spring:
+  application:
+    #跟服务名相同的dataid配置文件， 称之为默认配置配置文件
+    name: com.shuaiwu.user.redis
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        username: nacos
+        password: nacos
+        #nacos默认是properties文件格式
+#        file-extension: yaml

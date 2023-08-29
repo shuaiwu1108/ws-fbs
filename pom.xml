@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.shuaiwu</groupId>
+  <artifactId>ws-fbs</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>ws-fbs</name>
+  <description>分布式系统构建</description>
+  <packaging>pom</packaging>
+
+<!--  公司自定义的parent-->
+<!--  <parent></parent>-->
+
+  <modules>
+    <module>user</module>
+    <module>auth</module>
+    <module>user-nacos</module>
+    <module>auth-sentinel</module>
+    <module>auth-nacos</module>
+    <module>auth-openfeign</module>
+    <module>auth-openfeign-sentinel</module>
+    <module>config-nacos</module>
+    <module>sentinel</module>
+    <module>seata</module>
+    <module>gateway</module>
+  </modules>
+
+  <properties>
+    <java.version>1.8</java.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+    </dependency>
+  </dependencies>
+
+  <dependencyManagement>
+<!--    Spring Cloud alibaba 版本管理-->
+    <dependencies>
+      <dependency>
+        <groupId>com.alibaba.cloud</groupId>
+        <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+        <version>2.2.6.RELEASE</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+<!--      Spring Boot 版本管理-->
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>2.3.2.RELEASE</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+<!--      Spring Cloud 版本管理-->
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>Hoxton.SR9</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+</project>
